@@ -1,0 +1,11 @@
+.header {
+    background-color: rgb(58, 58, 58);
+    color: white;
+    margin: -8px auto;
+    align-items: center;
+    display: flex;
+}
+
+.header img {
+    margin: 6px 16px;
+}

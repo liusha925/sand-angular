@@ -1,0 +1,13 @@
+.footer {
+    background-color: rgb(58, 58, 58);
+    color: white;
+    margin: 0 auto;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px 10px;
+}
+
+.pull-right {
+    font-size: 14px;
+    float: right !important;
+}

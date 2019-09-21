@@ -1,0 +1,100 @@
+<my-msg [msg]="msg" (getMsg)="msg_($event)"></my-msg>
+<section class="content-header">
+    <h1>{{secondName}}<small>{{firstName}}</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>首页</a></li>
+        <li><a href="#">{{firstName}}</a></li>
+        <li class="active">{{secondName}}</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">菜单添加</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="menuform" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">父级</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="parentId" [(ngModel)]="menu.parentId">
+                                    <option value="treeRoot">主目录</option>
+                                    <option *ngFor="let menu of menuList" value="{{menu.menuId}}">{{menu.menuName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">名称</label>
+                            <div class="col-sm-10">
+                                <input class="form-control rounded" name="menuName" type="text" [(ngModel)]="menu.menuName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">类型</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="menuType" [(ngModel)]="menu.menuType">
+                                    <option value="目录">目录</option>
+                                    <option value="菜单">菜单</option>
+                                    <option value="按钮">按钮</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">URL</label>
+                            <div class="col-sm-10">
+                                <input class="form-control rounded" name="menuUrl" type="text" [(ngModel)]="menu.menuUrl">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">排序</label>
+                            <div class="col-sm-10">
+                                <input class="form-control rounded" name="orderNum" type="text" [(ngModel)]="menu.orderNum">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">状态</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="visible" [(ngModel)]="menu.visible">
+                                    <option value="显示">显示</option>
+                                    <option value="隐藏">隐藏</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图标</label>
+                            <div class="col-sm-10">
+                                <input class="form-control rounded" name="icon" type="text" [(ngModel)]="menu.icon">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">打开方式</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="target" [(ngModel)]="menu.target">
+                                    <option value="页签中打开">页签中打开</option>
+                                    <option value="新窗口打开">新窗口打开</option>
+                                    <option value="当前窗口打开">当前窗口打开</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">权限字符串</label>
+                            <div class="col-sm-10">
+                                <input class="form-control rounded" name="purview" type="text" [(ngModel)]="menu.purview">
+                            </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button class="btn btn-default" type="button" (click)="goBack()">返回</button>
+                                <button class="btn btn-primary" type="submit">保存</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
