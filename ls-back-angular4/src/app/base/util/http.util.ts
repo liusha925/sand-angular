@@ -10,7 +10,7 @@ const options = new RequestOptions({
   withCredentials: true,
   headers: new Headers({
     'X-Requested-With': 'XMLHttpRequest',
-    'Authorization': "Bearer " + sessionStorage.getItem('access_token')
+    'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
   })
 });
 

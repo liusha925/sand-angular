@@ -56,7 +56,8 @@ export class LoginComponent implements OnInit {
       console.log('登录响应参数：', data);
       if (data) {
         if (data.code == CodeEnum.SUCCESS) {
-          sessionStorage.setItem('access_token', JSON.stringify(data.data.access_token));
+          sessionStorage.removeItem('access_token');
+          sessionStorage.setItem('access_token', data.data.access_token);
           sessionStorage.setItem('user_id', JSON.stringify(data.data.user_id));
           sessionStorage.setItem('real_name', JSON.stringify(data.data.real_name));
           sessionStorage.setItem('authorities', JSON.stringify(data.data.authorities));
