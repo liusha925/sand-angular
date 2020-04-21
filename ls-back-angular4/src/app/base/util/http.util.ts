@@ -8,7 +8,10 @@ import { Config } from "../../app-config";
 
 const options = new RequestOptions({
   withCredentials: true,
-  headers: new Headers({ 'X-Requested-With': 'XMLHttpRequest' })
+  headers: new Headers({
+    'X-Requested-With': 'XMLHttpRequest',
+    'Authorization': "Bearer " + sessionStorage.getItem('access_token')
+  })
 });
 
 @Injectable()
@@ -50,11 +53,20 @@ export class HttpUtil {
       .catch(this.handleError);
   }
 
-  postForm(url: string, params?: any) {
+  postFormLogin(url: string, params?: any) {
     let formData: FormData = new FormData();
     formData.append('username', params.username);
     formData.append('password', params.password);
-    return this.post(url, formData);
+
+    url = this.baseUrl + url;
+    console.log('登录请求，url：', url, 'formData:', formData);
+    let options = new RequestOptions({
+      withCredentials: true,
+      headers: new Headers({ 'X-Requested-With': 'XMLHttpRequest' })
+    });
+    return this.http.post(url, formData, options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   private extractData(response: Response) {

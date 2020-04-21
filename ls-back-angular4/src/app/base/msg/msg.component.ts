@@ -24,7 +24,7 @@ export class MsgComponent implements OnInit {
   public _msg: string;
   public msgFlag: boolean;
   public alertClass: string;
-  public msgStr: string = '这是一个提示信息';
+  public msgStr: string = '系统提示';
 
   ngOnInit(): void {
     this.msgFlag = false;

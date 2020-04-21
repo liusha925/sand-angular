@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lsand-dashboard',
+  selector: 'sys-dashboard',
   templateUrl: './dashboard.component.html'
 })
 

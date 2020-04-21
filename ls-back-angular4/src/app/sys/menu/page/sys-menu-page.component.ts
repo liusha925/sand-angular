@@ -24,8 +24,7 @@ export class SysMenuPageComponent extends BaseComponent implements OnInit {
   selectedMenu: SysMenu = new SysMenu();
 
   constructor(public loaction: Location,
-    private router: Router,
-    private menuService: SysMenuService) {
+    private router: Router, private menuService: SysMenuService) {
     super(loaction);
   }
 

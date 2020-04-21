@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpModule, JsonpModule } from "@angular/http";
 
 import { Config } from "../app-config";
-import { MsgModule } from "../base/msg/msg.module";
+import { BaseModule } from "../base/base.module";
 import { LoginComponent } from "./login.component";
 import { LoginRoutingModule } from "./login-routing.module";
 import { LoginService } from "./login.service";
@@ -14,7 +14,7 @@ import { LoginService } from "./login.service";
     BrowserModule, FormsModule,
     HttpModule, JsonpModule,
     LoginRoutingModule,
-    MsgModule
+    BaseModule
   ],
   declarations: [
     LoginComponent

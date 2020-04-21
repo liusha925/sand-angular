@@ -6,9 +6,8 @@ import { AmexioWidgetModule, CommonHttpService } from 'amexio-ng-extensions';
 
 import { Config } from "../app-config";
 import { SysRoutingModule } from "./sys-routing.module";
-import { MsgModule } from "../base/msg/msg.module";
+import { BaseModule } from "../base/base.module";
 
-import { MsgComponent } from "../base/msg/msg.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { SysMenuPageComponent } from "./menu/page/sys-menu-page.component";
 import { SysMenuAddComponent } from "./menu/add/sys-menu-add.component";
@@ -23,7 +22,7 @@ import { SysMenuService } from "./menu/sys-menu.service";
     PaginationModule.forRoot(),
     AmexioWidgetModule,
     SysRoutingModule,
-    MsgModule
+    BaseModule
   ],
   providers: [
     CommonHttpService,
@@ -31,7 +30,6 @@ import { SysMenuService } from "./menu/sys-menu.service";
     SysMenuService
   ],
   declarations: [
-    // MsgComponent,
     DashboardComponent,
     SysMenuPageComponent,
     SysMenuAddComponent,
