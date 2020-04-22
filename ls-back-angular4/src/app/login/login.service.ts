@@ -9,7 +9,6 @@ export class LoginService {
 
   login(username: string, password: string) {
     let param = { 'username': username, 'password': password };
-    console.log(param);
     let url = "/auth/login";
     return this.httpUtil.postFormLogin(url, param);
   }

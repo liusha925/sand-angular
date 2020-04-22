@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { Config } from "../../app-config";
+import { CryptUtil } from "./crypt.util";
 
 const options = new RequestOptions({
   withCredentials: true,
@@ -17,7 +18,9 @@ const options = new RequestOptions({
 @Injectable()
 export class HttpUtil {
   private baseUrl: any;
-  constructor(private config: Config, private http: Http) {
+  constructor(private config: Config,
+    private http: Http,
+    private cryptUtil: CryptUtil) {
     this.baseUrl = config.items.baseUrl;
   }
 
@@ -54,11 +57,14 @@ export class HttpUtil {
   }
 
   postFormLogin(url: string, params?: any) {
+    // 密码加密传输
+    params.password = this.cryptUtil.desEncrypt(params.password);
+    // 使用表单提交
     let formData: FormData = new FormData();
     formData.append('username', params.username);
     formData.append('password', params.password);
 
-    console.log('登录请求，url：', url, 'formData:', formData);
+    console.log('登录请求，url：', url, 'params:', params);
     url = this.baseUrl + url;
     let options = new RequestOptions({
       withCredentials: true,
@@ -96,10 +102,10 @@ export class HttpUtil {
   }
 
   /**
-   * 存储Storage信息
-   * @param data 
+   * 存储缓存信息
+   * @param {any} data 
    */
-  saveStorage(data: any) {
+  saveStorage(data: any): void {
     localStorage.setItem('access_token', data.access_token);
     localStorage.setItem('user_id', data.user_id);
     localStorage.setItem('real_name', data.real_name);
@@ -110,16 +116,10 @@ export class HttpUtil {
   }
 
   /**
-   * 清除Storage信息
+   * 清除缓存信息
    */
-  clearStorage() {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('real_name');
-    localStorage.removeItem('authorities');
-    localStorage.removeItem('expiration');
-    localStorage.removeItem('token_type');
-    localStorage.removeItem('login_date');
+  clearStorage(): void {
+    localStorage.clear();
   }
 
 }

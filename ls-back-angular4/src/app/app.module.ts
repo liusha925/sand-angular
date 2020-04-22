@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
 import { Config } from "./app-config";
 import { HttpUtil } from "./base/util/http.util";
+import { CryptUtil } from "./base/util/crypt.util";
 import { AppComponent } from './app.component';
 import { MainModule } from "./main/main.module";
 import { LoginModule } from "./login/login.module";
@@ -19,6 +20,7 @@ import { LoginModule } from "./login/login.module";
   providers: [
     Config,
     HttpUtil,
+    CryptUtil,
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   declarations: [AppComponent],

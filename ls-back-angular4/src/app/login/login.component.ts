@@ -36,18 +36,15 @@ export class LoginComponent implements OnInit {
   }
 
   check() {
-    let result = true;
     if (!this.username) {
       this.msg = '用户名不能为空';
-      result = false;
-      return result;
+      return false;
     }
     if (!this.password) {
       this.msg = '密码不能为空';
-      result = false;
-      return result;
+      return false;
     }
-    return result;
+    return true;
   }
 
   login() {
