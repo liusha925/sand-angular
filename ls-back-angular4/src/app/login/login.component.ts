@@ -5,6 +5,7 @@ import { Config } from "../app-config";
 import { LoginService } from "./login.service";
 import { AlertEnum } from "../base/enums/alert-enum";
 import { CodeEnum } from 'app/base/enums/code-enum';
+import { HttpUtil } from 'app/base/util/http.util';
 
 @Component({
   selector: 'my-app',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   password: string;
   constructor(private router: Router,
     private config: Config,
+    private httpUtil: HttpUtil,
     private loginService: LoginService) {
     this.app = config.items;
   }
@@ -56,19 +58,13 @@ export class LoginComponent implements OnInit {
       console.log('登录响应参数：', data);
       if (data) {
         if (data.code == CodeEnum.SUCCESS) {
-          sessionStorage.removeItem('access_token');
-          sessionStorage.setItem('access_token', data.data.access_token);
-          sessionStorage.setItem('user_id', JSON.stringify(data.data.user_id));
-          sessionStorage.setItem('real_name', JSON.stringify(data.data.real_name));
-          sessionStorage.setItem('authorities', JSON.stringify(data.data.authorities));
-          sessionStorage.setItem('expiration', JSON.stringify(data.data.expiration));
-          sessionStorage.setItem('token_type', JSON.stringify(data.data.token_type));
+          this.httpUtil.saveStorage(data.data);
           this.router.navigate(['/sys/dashboard']);
         } else {
           this.msg = data.msg;
         }
       } else {
-        this.msg = "登录失联了，正在紧急查找...";
+        this.msg = "服务失联了，正在紧急查找...";
       }
     });
   }

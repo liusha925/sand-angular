@@ -10,7 +10,7 @@ const options = new RequestOptions({
   withCredentials: true,
   headers: new Headers({
     'X-Requested-With': 'XMLHttpRequest',
-    'Authorization': 'Bearer ' + sessionStorage.getItem('access_token')
+    'Authorization': 'Bearer ' + localStorage.getItem('access_token')
   })
 });
 
@@ -58,8 +58,8 @@ export class HttpUtil {
     formData.append('username', params.username);
     formData.append('password', params.password);
 
-    url = this.baseUrl + url;
     console.log('登录请求，url：', url, 'formData:', formData);
+    url = this.baseUrl + url;
     let options = new RequestOptions({
       withCredentials: true,
       headers: new Headers({ 'X-Requested-With': 'XMLHttpRequest' })
@@ -69,13 +69,20 @@ export class HttpUtil {
       .catch(this.handleError);
   }
 
-  private extractData(response: Response) {
+  /**
+   * 获取Response body
+   * @param response 
+   */
+  extractData(response: Response) {
     console.log('提取数据：', response);
     let body = response.json();
     return body || {};
   }
-
-  private handleError(error: Response | any) {
+  /**
+   * 异常处理
+   * @param error 
+   */
+  handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -86,6 +93,33 @@ export class HttpUtil {
     }
     console.error('异常信息：', errMsg);
     return Observable.throw(errMsg);
+  }
+
+  /**
+   * 存储Storage信息
+   * @param data 
+   */
+  saveStorage(data: any) {
+    localStorage.setItem('access_token', data.access_token);
+    localStorage.setItem('user_id', data.user_id);
+    localStorage.setItem('real_name', data.real_name);
+    localStorage.setItem('authorities', JSON.stringify(data.authorities));
+    localStorage.setItem('expiration', data.expiration);
+    localStorage.setItem('token_type', data.token_type);
+    localStorage.setItem('login_date', new Date().toString());
+  }
+
+  /**
+   * 清除Storage信息
+   */
+  clearStorage() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('real_name');
+    localStorage.removeItem('authorities');
+    localStorage.removeItem('expiration');
+    localStorage.removeItem('token_type');
+    localStorage.removeItem('login_date');
   }
 
 }

@@ -25,8 +25,8 @@ export class AppComponent implements OnInit {
 
   checkLogin() {
     let isLogin = this.loginService.checkLogin();
-    if (isLogin) {
-      this.router.navigate(['/main']);
+    if (!isLogin) {
+      this.router.navigate(['/login']);
     }
   }
 
