@@ -11,6 +11,7 @@ const options = new RequestOptions({
   withCredentials: true,
   headers: new Headers({
     'X-Requested-With': 'XMLHttpRequest',
+    // 除白名单以外的请求都必须带token
     'Authorization': 'Bearer ' + localStorage.getItem('access_token')
   })
 });
