@@ -46,7 +46,11 @@ export class SysMenuAddComponent extends BaseComponent implements OnInit {
           this.msg = "添加成功";
           setTimeout(() => { super.goBack() }, 3000);
         } else {
-          this.msg = "添加失败";
+          if (data.msg) {
+            this.msg = "添加失败，" + data.msg;
+          } else {
+            this.msg = "添加失败";
+          }
         }
       }, error => this.errorMessage = <any>error);
   }

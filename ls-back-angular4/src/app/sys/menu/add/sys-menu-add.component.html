@@ -36,9 +36,9 @@
                             <label class="col-sm-2 control-label">类型</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="menuType" [(ngModel)]="menu.menuType">
-                                    <option value="目录">目录</option>
-                                    <option value="菜单">菜单</option>
-                                    <option value="按钮">按钮</option>
+                                    <option value="M">目录</option>
+                                    <option value="C">菜单</option>
+                                    <option value="F">按钮</option>
                                 </select>
                             </div>
                         </div>
@@ -58,8 +58,8 @@
                             <label class="col-sm-2 control-label">状态</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="visible" [(ngModel)]="menu.visible">
-                                    <option value="显示">显示</option>
-                                    <option value="隐藏">隐藏</option>
+                                    <option value="0">显示</option>
+                                    <option value="1">隐藏</option>
                                 </select>
                             </div>
                         </div>
@@ -73,9 +73,9 @@
                             <label class="col-sm-2 control-label">打开方式</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="target" [(ngModel)]="menu.target">
-                                    <option value="页签中打开">页签中打开</option>
-                                    <option value="新窗口打开">新窗口打开</option>
-                                    <option value="当前窗口打开">当前窗口打开</option>
+                                    <option value="_item">页签中打开</option>
+                                    <option value="_blank">新窗口打开</option>
+                                    <option value="_current">当前窗口打开</option>
                                 </select>
                             </div>
                         </div>
