@@ -39,9 +39,22 @@
                     <amexio-card-pane>
                         <amexio-pane-body>
                             <amexio-tree-data-table [title]="'菜单列表'" [dataTableBindData]="menuTree" (selectedRecord)="selectedRecord($event)">
-                                <amexio-data-table-column [dataIndex]="'name'" [dataType]="'string'" [hidden]="false" [text]="'名称'"></amexio-data-table-column>
-                                <amexio-data-table-column [dataIndex]="'pid'" [dataType]="'string'" [hidden]="false" [text]="'父ID'"></amexio-data-table-column>
-                                <amexio-data-table-column [dataIndex]="'type'" [dataType]="'string'" [hidden]="false" [text]="'类型'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'name'" [dataType]="'string'" [hidden]="false" [text]="'菜单名称'"></amexio-data-table-column>
+                                <!-- <amexio-data-table-column [dataIndex]="'entity.menuId'" [dataType]="'string'" [hidden]="false" [text]="'菜单ID'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.parentId'" [dataType]="'string'" [hidden]="false" [text]="'父菜单ID'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.menuName'" [dataType]="'string'" [hidden]="false" [text]="'菜单名称'"></amexio-data-table-column> -->
+                                <amexio-data-table-column [dataIndex]="'entity.menuType'" [dataType]="'string'" [hidden]="false" [text]="'菜单类型'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.menuUrl'" [dataType]="'string'" [hidden]="false" [text]="'菜单URL'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.orderNum'" [dataType]="'string'" [hidden]="false" [text]="'显示顺序'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.target'" [dataType]="'string'" [hidden]="false" [text]="'打开方式'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.visible'" [dataType]="'string'" [hidden]="false" [text]="'菜单状态'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.purview'" [dataType]="'string'" [hidden]="false" [text]="'权限标识'"></amexio-data-table-column>
+                                <!-- <amexio-data-table-column [dataIndex]="'entity.icon'" [dataType]="'string'" [hidden]="false" [text]="'菜单图标'"></amexio-data-table-column> -->
+                                <amexio-data-table-column [dataIndex]="'entity.createBy'" [dataType]="'string'" [hidden]="false" [text]="'创建者'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.updateBy'" [dataType]="'string'" [hidden]="false" [text]="'更新者'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.createTime'" [dataType]="'string'" [hidden]="false" [text]="'创建时间'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.updateTime'" [dataType]="'string'" [hidden]="false" [text]="'更新时间'"></amexio-data-table-column>
+                                <amexio-data-table-column [dataIndex]="'entity.remark'" [dataType]="'string'" [hidden]="false" [text]="'备注信息'"></amexio-data-table-column>
                             </amexio-tree-data-table>
                         </amexio-pane-body>
                     </amexio-card-pane>

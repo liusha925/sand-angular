@@ -24,13 +24,13 @@
                 <a (click)="selectFirstMenu(firstMenu)">
                     <i class="glyphicon glyphicon-asterisk"></i> <span>{{firstMenu.name}}</span>
                     <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
                     <li *ngFor="let secondMenu of firstMenu?.children" [ngClass]="{'active':(secondMenu.isOpen)}">
                         <a (click)="selectSecondMenu(secondMenu)">
-                            <i class="{{secondMenu.icon}}"></i> {{secondMenu.name}}
+                            <i class="{{secondMenu.entity.icon}}"></i> <span>{{secondMenu.name}}</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -38,7 +38,7 @@
                         <ul class="treeview-menu">
                             <li *ngFor="let thirdMenu of secondMenu?.children" (click)="selectThirdMenu(thirdMenu,thirdMenu.entity.menuUrl)" [ngClass]="{'active':selectedThirdMenuId==thirdMenu.id}">
                                 <a>
-                                    <i class="{{thirdMenu.icon}}"></i> {{thirdMenu.name}}
+                                    <i class="{{thirdMenu.entity.icon}}"></i> {{thirdMenu.name}}
                                 </a>
                             </li>
                         </ul>

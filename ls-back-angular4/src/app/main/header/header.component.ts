@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(private config: Config,
     private router: Router) {
     this.app = config.items;
-    this.username = '流沙来了';
+    this.username = localStorage.getItem('real_name');
   }
 
   ngOnInit(): void {

@@ -24,7 +24,7 @@ export class SidebarComponent implements OnInit {
     this.flag = false;
   }
   ngOnInit(): void {
-    this.username = '流沙来了';
+    this.username = localStorage.getItem('real_name');
     this.selectedFirstMenuId = sessionStorage.getItem("firstMenu");
     this.selectedSecondMenuId = sessionStorage.getItem("secondMenu");
     this.selectedThirdMenuId = sessionStorage.getItem("thirdMenu");
