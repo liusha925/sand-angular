@@ -9,20 +9,19 @@ import { SysMenuService } from "../../sys/menu/sys-menu.service";
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
-  treeMenu: any[];
   app: any;
+  flag: boolean;
+  treeMenu: any[];
+  username: string;
   selectedFirstMenuId: any;
   selectedSecondMenuId: any;
   selectedThirdMenuId: any;
-  username: string;
-  flag: boolean;
 
-  constructor(private config: Config,
-    private router: Router,
-    private tMenuService: SysMenuService) {
-    this.app = config.items;
+  constructor(private router: Router, private config: Config, private tMenuService: SysMenuService) {
     this.flag = false;
+    this.app = config.items;
   }
+  
   ngOnInit(): void {
     this.username = localStorage.getItem('real_name');
     this.selectedFirstMenuId = sessionStorage.getItem("firstMenu");
@@ -62,13 +61,20 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  selectThirdMenu(menu: any, href: any) {
+  selectSecondMenuHref(menu: any, href: any) {
+    console.log('selectSecondMenu：', menu, href);
+    this.selectedSecondMenuId = menu.id;
+    sessionStorage.setItem("secondMenu", this.selectedSecondMenuId);
+    this.router.navigate([href]);
+  }
+
+  selectThirdMenuHref(menu: any, href: any) {
     console.log('selectThirdMenu：', menu, href);
     this.selectedThirdMenuId = menu.id;
     sessionStorage.setItem("thirdMenu", this.selectedThirdMenuId);
     this.router.navigate([href]);
   }
-  
+
   toggle() {
     this.flag = !this.flag;
   }

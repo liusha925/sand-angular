@@ -22,26 +22,26 @@
             <li class="header">导航菜单</li>
             <li class="treeview" *ngFor="let firstMenu of treeMenu;let i=index" [ngClass]="{'active':(firstMenu.isOpen)}">
                 <a (click)="selectFirstMenu(firstMenu)">
-                    <i class="glyphicon glyphicon-asterisk"></i> <span>{{firstMenu.name}}</span>
+                    <i class="{{firstMenu.entity.icon}}"></i> <span>{{firstMenu.name}}</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
                     <li *ngFor="let secondMenu of firstMenu?.children" [ngClass]="{'active':(secondMenu.isOpen)}">
-                        <a (click)="selectSecondMenu(secondMenu)">
+                        <a (click)="selectSecondMenuHref(secondMenu, secondMenu.entity.menuUrl)">
                             <i class="{{secondMenu.entity.icon}}"></i> <span>{{secondMenu.name}}</span>
-                            <span class="pull-right-container">
+                            <!-- <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
-                            </span>
+                            </span> -->
                         </a>
-                        <ul class="treeview-menu">
-                            <li *ngFor="let thirdMenu of secondMenu?.children" (click)="selectThirdMenu(thirdMenu,thirdMenu.entity.menuUrl)" [ngClass]="{'active':selectedThirdMenuId==thirdMenu.id}">
+                        <!-- <ul class="treeview-menu">
+                            <li *ngFor="let thirdMenu of secondMenu?.children" (click)="selectThirdMenuHref(thirdMenu,thirdMenu.entity.menuUrl)" [ngClass]="{'active':selectedThirdMenuId==thirdMenu.id}">
                                 <a>
                                     <i class="{{thirdMenu.entity.icon}}"></i> {{thirdMenu.name}}
                                 </a>
                             </li>
-                        </ul>
+                        </ul> -->
                     </li>
                 </ul>
             </li>

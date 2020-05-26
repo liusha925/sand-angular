@@ -12,19 +12,18 @@ enableProdMode();
 })
 
 export class SysMenuPageComponent extends BaseComponent implements OnInit {
+  menuTree: any[];
+  msg: string = "";
   firstName: string = '基础配置';
   secondName: string = '菜单管理';
-  msg: string = "";
   // 菜单级别按钮权限控制
   viewMenuButton: boolean = true;
   addMenuButton: boolean = true;
   editMenuButton: boolean = true;
   deleteMenuButton: boolean = true;
-  menuTree: any[];
   selectedMenu: SysMenu = new SysMenu();
 
-  constructor(public loaction: Location,
-    private router: Router, private menuService: SysMenuService) {
+  constructor(public loaction: Location, private router: Router, private menuService: SysMenuService) {
     super(loaction);
   }
 
