@@ -1,6 +1,6 @@
 {
     "/apis/": {
-        "target": "http://localhost:8080/",
+        "target": "http://39.99.191.11:8888/",
         "secure": false,
         "pathRewrite": {
             "^/apis": ""
