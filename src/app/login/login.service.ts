@@ -9,7 +9,7 @@ export class LoginService {
 
   login(username: string, password: string) {
     let param = { 'username': username, 'password': password };
-    let url = "/auth/login";
+    let url = "/auth/user/login";
     return this.httpUtil.postFormLogin(url, param);
   }
 
