@@ -1,13 +1,13 @@
 <my-msg [alert]="alert" [timeOut]="1500" [msg]="msg" (msg_)="msg_($event)"></my-msg>
 <div class="container">
-    <div class="login_logo">
+    <!-- <div class="login_logo">
         <img src="/assets/img/LSand-left.png" /><a>LSand</a>
-    </div>
+    </div> -->
     <div class="form-box">
-        <div class="sign-tab">
+        <!-- <div class="sign-tab">
             <span id="mBtn">短信登录</span>
             <span id="nBtn" class="on">密码登录</span>
-        </div>
+        </div> -->
 
         <!-- 手机登录 -->
         <div id="mForm" class="formbox" style="display: none;">
@@ -25,10 +25,10 @@
                     <input class="f-u" name="username" [(ngModel)]="username" placeholder="请输入用户名" type="text" readonly onfocus="this.removeAttribute('readonly');" (keyup.enter)="login()">
                 </p>
                 <p class="inp">
-                    <input class="f-p" name="password" [(ngModel)]="password" placeholder="密码" type="password" readonly onfocus="this.removeAttribute('readonly');" (keyup.enter)="login()">
+                    <input class="f-p" name="password" [(ngModel)]="password" placeholder="请输入登录密码" type="password" readonly onfocus="this.removeAttribute('readonly');" (keyup.enter)="login()">
                 </p>
                 <p class="inp2">
-                    <a class='unit-reg' routerLink="../register">注册</a>
+                    <!-- <a class='unit-reg' routerLink="../register">注册</a> -->
                     <input (click)="login()" type="button" value="登录" id="nLogin">
                 </p>
             </form>
