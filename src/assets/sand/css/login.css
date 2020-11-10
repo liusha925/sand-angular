@@ -137,16 +137,16 @@
         background-color: #ccc;
     }
     .f-m {
-        background: url('../img/m.png') no-repeat 5px 0/ 35px 35px;
+        background: url('/assets/img/m.png') no-repeat 5px 0/ 35px 35px;
     }
     .f-y {
-        background: url('../img/y.png') no-repeat 7px 2px/ 30px 30px;
+        background: url('/assets/img/y.png') no-repeat 7px 2px/ 30px 30px;
     }
     .f-u {
-        background: url('../img/u.png') no-repeat 5px 0/ 35px 35px;
+        background: url('/assets/img/u.png') no-repeat 5px 0/ 35px 35px;
     }
     .f-p {
-        background: url('../img/p.png') no-repeat 7px 2px/ 30px 30px;
+        background: url('/assets/img/p.png') no-repeat 7px 2px/ 30px 30px;
     }
 }
 
